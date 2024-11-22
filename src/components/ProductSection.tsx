@@ -6,7 +6,7 @@ import { wrap } from "popmotion"
 import useEmblaCarousel from 'embla-carousel-react'
 
 // Define the type for a product
-interface Product {
+export interface Product {
   id: number
   name: string
   price: number
