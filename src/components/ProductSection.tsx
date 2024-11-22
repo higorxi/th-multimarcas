@@ -5,7 +5,24 @@ import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { wrap } from "popmotion"
 import useEmblaCarousel from 'embla-carousel-react'
 
-const products = [
+// Define the type for a product
+interface Product {
+  id: number
+  name: string
+  price: number
+  category: string
+  images: string[]
+  sizes: string[]
+  colors: string[]
+  description: string
+}
+
+// Define the props for the ProductSection component
+interface ProductSectionProps {
+  setSelectedProduct: (product: Product) => void
+}
+
+const products: Product[] = [
   { 
     id: 1, 
     name: 'Camiseta Básica', 
@@ -59,10 +76,10 @@ const products = [
   // Adicione mais produtos conforme necessário
 ]
 
-const ProductSection = ({ setSelectedProduct }) => {
-  const [activeCategory, setActiveCategory] = useState('todos')
+const ProductSection = ({ setSelectedProduct }: ProductSectionProps) => {
+  const [activeCategory, setActiveCategory] = useState<string>('todos')
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: 'center' })
-  const [selectedIndex, setSelectedIndex] = useState(0)
+  const [selectedIndex, setSelectedIndex] = useState<number>(0)
 
   const filteredProducts = activeCategory === 'todos'
     ? products
@@ -135,4 +152,3 @@ const ProductSection = ({ setSelectedProduct }) => {
 }
 
 export default ProductSection
-

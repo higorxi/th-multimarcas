@@ -85,7 +85,7 @@ const ProductModal = ({ product, onClose }: ProductModalProps) => {
                 <SelectContent>
                   {product.colors.map((color) => (
                     <SelectItem key={color} value={color}>{color}</SelectItem>
-                  ))}
+                ))}
                 </SelectContent>
               </Select>
             </div>
