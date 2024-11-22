@@ -4,10 +4,24 @@ import { Button } from '@/components/ui/button'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Separator } from '@/components/ui/separator'
 
-const ProductModal = ({ product, onClose }) => {
-  const [selectedImage, setSelectedImage] = useState(0)
-  const [selectedSize, setSelectedSize] = useState(product.sizes[0])
-  const [selectedColor, setSelectedColor] = useState(product.colors[0])
+interface Product {
+  name: string
+  images: string[]
+  sizes: string[]
+  colors: string[]
+  description: string
+  price: number
+}
+
+interface ProductModalProps {
+  product: Product
+  onClose: () => void
+}
+
+const ProductModal = ({ product, onClose }: ProductModalProps) => {
+  const [selectedImage, setSelectedImage] = useState<number>(0)
+  const [selectedSize, setSelectedSize] = useState<string>(product.sizes[0])
+  const [selectedColor, setSelectedColor] = useState<string>(product.colors[0])
 
   const handleWhatsAppContact = () => {
     const message = `Olá! Estou interessado no produto: ${product.name} - Tamanho: ${selectedSize}, Cor: ${selectedColor}`
@@ -94,4 +108,3 @@ const ProductModal = ({ product, onClose }) => {
 }
 
 export default ProductModal
-
