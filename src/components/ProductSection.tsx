@@ -1,14 +1,7 @@
 import { useState, useEffect, useCallback } from 'react'
 import { Card, CardContent, CardFooter } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel"
+import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { wrap } from "popmotion"
 import useEmblaCarousel from 'embla-carousel-react'
 
